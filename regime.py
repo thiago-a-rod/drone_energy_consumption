@@ -73,7 +73,7 @@ def find_regime(df):
     wholeflight = df[(df.time > TKStart) & (df.time < LANDFinish)].copy()
     return takeOff, landing, cruise, wholeflight
 
-def figures1(df):
+def figureS3(df):
     filtered = Filter(df)
     slopes, takeOffStartIndex, takeOffFinishIndex, landStartIndex, landFinishIndex = Slopes(filtered)
 
@@ -87,11 +87,11 @@ def figures1(df):
     for i in range(len(labels)):
         plt.scatter(df.loc[points[i], 'time'], df.loc[points[i], 'position_z'] + 0.1, c='black', s=10)
         plt.text(df.loc[points[i], 'time'] - 2.5, df.loc[points[i], 'position_z'] + 2, labels[i], c='black')
-    plt.savefig("results/figureS1.pdf")
+    plt.savefig("results/figureS3.pdf")
     plt.show()
     pass
 
-def figures2(df):
+def figureS4(df):
     '''
     This function creates Supplemental Figure 2
     :param df: [DataFrame] flight data frame
@@ -109,10 +109,10 @@ def figures2(df):
     plt.scatter(df.loc[315, 'time'], df.loc[315, 'position_z'] + 0.1, c='black', s=10)
     plt.text(df.loc[315, 'time'] - 0.2, df.loc[315, 'position_z'] + 0.3, "B", c='black')
     plt.legend(frameon=False, loc="lower right")
-    plt.savefig("results/figureS2.pdf")
+    plt.savefig("results/figureS4.pdf")
     plt.show()
 
-def figures3(df):
+def figureS5(df):
     df = df.reset_index()
     df["position_z"] = df["position_z"] - pd.DataFrame.min(df["position_z"])
     filtered = Filter(df)
@@ -137,10 +137,10 @@ def figures3(df):
         else:
             plt.scatter(df.loc[points[i], 'time'], df.loc[points[i], 'slopes'] + 0.0001, c='black', s=10)
             plt.text(df.loc[points[i], 'time'] - 2, df.loc[points[i], 'slopes'] + 0.015, labels[i], c='black')
-    plt.savefig("results/figureS3.pdf")
+    plt.savefig("results/figureS5.pdf")
     plt.show()
 
-def figures4(df):
+def figureS6(df):
     df["position_z"] = df["position_z"] - pd.DataFrame.min(df["position_z"])
     filtered = Filter(df)
     slopes, takeOffStartIndex, takeOffFinishIndex, landStartIndex, landFinishIndex = Slopes(filtered)
@@ -159,7 +159,7 @@ def figures4(df):
         plt.scatter(df.loc[points[i], 'time'], df.loc[points[i], 'position_z'] + 0.1, c='black', s=10)
         plt.text(df.loc[points[i], 'time'] - 2.5, df.loc[points[i], 'position_z'] + 2, labels[i], c='black')
     plt.legend(frameon=False, ncol=3)
-    plt.savefig("results/figureS4.pdf")
+    plt.savefig("results/figureS6.pdf")
     plt.show()
 
 def main():
@@ -169,10 +169,10 @@ def main():
     df = df.reset_index()
     df["position_z"] = df["position_z"] - pd.DataFrame.min(df["position_z"])
 
-    figures1(df)
-    figures2(df)
-    figures3(df)
-    figures4(df)
+    figureS3(df)
+    figureS4(df)
+    figureS5(df)
+    figureS6(df)
 
 
 if __name__ == '__main__':

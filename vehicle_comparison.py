@@ -72,7 +72,7 @@ def figure5(df):
     plt.savefig("results/figure5.pdf")
     plt.show()
 
-def figureS5(df):
+def figureS1(df):
     df1 = df.sort_values(by=['tonkm'], ascending=True).copy()
 
     plt.figure(figsize=(14, 8))
@@ -89,7 +89,7 @@ def figureS5(df):
     sns.despine(top=True, right=True)
     plt.grid(which='major', axis='both', color='gray', linewidth=1.0, alpha=0.1)
     plt.xlabel('Energy consumption [MJ/ton-km]', fontsize=28)
-    plt.savefig("results/figureS5.pdf")
+    plt.savefig("results/figureS1.pdf")
     plt.show()
 
 
@@ -159,7 +159,7 @@ def main():
 
     figure4(df)
     figure5(df)
-    figureS5(df)
+    figureS1(df)
 
 
 if __name__ == "__main__":

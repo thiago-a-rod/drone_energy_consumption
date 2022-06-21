@@ -12,11 +12,10 @@ This project contains the following CSV files:
 External dependencies (should be uploaded to folder 'data' before running): 
 01. 'flights.csv': https://doi.org/10.1184/R1/12683453.v1
 02. 'CO₂ equivalent non-baseload output emission rate (lb_MWh), by eGRID subregion, 2020.csv': https://www.epa.gov/egrid/data-explorer 
-03. 'eGRID2020_subregions.shp': https://www.epa.gov/egrid/egrid-mapping-files
+03. 'eGRID2020_subregions.shp' and 'eGRID2020_subregions.shx': https://www.epa.gov/egrid/egrid-mapping-files
 
 Execute the script "main.py" to run the analysis.
 XGBoost functions are available at helpers.r and modeling_byregime.r
-
 
 
 Scripts, dependencies, and outputs: +-------+-----------------------+----------------------------------------+-----------------------+
@@ -25,10 +24,10 @@ Scripts, dependencies, and outputs: +-------+-----------------------+----------
 | 1     | pre_processing.py     | regime.py                              | flights_processed.csv |
 |       |                       | flights.csv                            |                       |
 +-------+-----------------------+----------------------------------------+-----------------------+
-| 2     | regime.py             | flights.csv                            | Figure S1             |
-|       |                       |                                        | Figure S2             |
-|       |                       |                                        | Figure S3             |
+| 2     | regime.py             | flights.csv                            | Figure S3             |
 |       |                       |                                        | Figure S4             |
+|       |                       |                                        | Figure S5             |
+|       |                       |                                        | Figure S6             |
 +-------+-----------------------+----------------------------------------+-----------------------+
 | 3     | energy_summary.py     | inflightcomponents.py                  | energy_summary.csv    |
 |       |                       | airdensity.py                          |                       |
@@ -36,7 +35,7 @@ Scripts, dependencies, and outputs: +-------+-----------------------+----------
 |       |                       | flights_processed.csv                  |                       |
 +-------+-----------------------+----------------------------------------+-----------------------+
 | 4     | energy_model.py       | LinearRegression.py                    | Table 1               |
-|       |                       | sample.csv                             | Figure 8              |
+|       |                       | sample.csv                             | Figure 7              |
 |       |                       |                                        | coefficients.csv      |     
 +-------+-----------------------+----------------------------------------+-----------------------+
 | 5     | power_speed.py        | energy_summary.csv                     | Figure 1              |
@@ -52,16 +51,16 @@ Scripts, dependencies, and outputs: +-------+-----------------------+----------
 |       |                       | eGRID2020_subregions.sbn               | Table S3              |
 |       |                       | eGRID2020_subregions.sbx               | Table S4              |
 |       |                       | eGRID2020_subregions.shp               | Figure 3              |
-|       |                       | eGRID2020_subregions.shx               | Figure 6              |
+|       |                       | eGRID2020_subregions.shx               | Figure S2             |
 |       |                       | "CO2 equivalent non-baseload output    |                       |
 |       |                       |      emission rate (lb_MWh), by eGRID  |                       |
 |       |                       |      subregion, 2020.csv"              |                       |
 +-------+-----------------------+----------------------------------------+-----------------------+
 | 9     | vehicle_comparison.py | table3.csv                             | Figure 4              |
 |       |                       |                                        | Figure 5              |
-|       |                       |                                        | Figure S5             |
+|       |                       |                                        | Figure S1             |
 +-------+-----------------------+----------------------------------------+-----------------------+
-| 10    | ARE.py                | model_2error.csv                       | Figure S11            |
+| 10    | ARE.py                | model_2error.csv                       | Figure S12            |
 |       |                       | sample.csv                             |                       |
 |       |                       | coefficients.csv                       |                       |
 |       |                       | energy_summary.csv                     |                       |

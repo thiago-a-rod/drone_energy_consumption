@@ -84,7 +84,7 @@ def main():
     plt.ylabel("Absolute relative error", fontsize=18)
     plt.xticks(fontsize=18)
     plt.yticks(fontsize=18)
-    plt.savefig("results/figureS11.pdf")
+    plt.savefig("results/figureS12.pdf")
     plt.show()
 
 

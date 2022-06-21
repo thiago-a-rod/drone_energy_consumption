@@ -136,6 +136,7 @@ def maps(subregions, egrid, v):
     df = pd.merge(subregions, ghg_packs_to_drone, on='region', how='outer')
     df_main = df.copy()
     df_main.drop([0, 1, 6, 7, 26], inplace=True)
+    print(df_main['Medium duty diesel truck'].min(), df_main['Medium duty diesel truck'].max())
 
     fig, ax = plt.subplots(1, figsize=(10, 6))
     v_compare = 'drone_emissions_km'
@@ -171,7 +172,7 @@ def maps(subregions, egrid, v):
                     labelbottom=False, labelleft=False)
     # ax.set_title("", fontsize=16)
     sns.despine(top=True, right=True, bottom=True, left=True)
-    fig.savefig('results/figure6.pdf')
+    fig.savefig('results/figureS2.pdf')
     plt.show()
 
 

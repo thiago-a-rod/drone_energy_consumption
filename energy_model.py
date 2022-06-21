@@ -54,7 +54,7 @@ def rl(regime,df,coeff):
     return [coeff.loc[regime,'b1']*df.Pi_hover.min() + coeff.loc[regime,'b0'],
             coeff.loc[regime,'b1']*df.Pi_hover.max() + coeff.loc[regime,'b0']]
 
-def figure8(summary, sample):
+def figure7(summary, sample):
     plt.rcParams.update({'figure.autolayout': True})
     plt.rcParams["font.family"] = "Helvetica"
     plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica']})
@@ -84,7 +84,7 @@ def figure8(summary, sample):
     plt.yticks(fontsize=16)
     sns.despine(top=True, right=True)
     plt.grid(which='major', axis='both', color='gray', linewidth=1.0, alpha=0.1)
-    plt.savefig('results/figure8.pdf')
+    plt.savefig('results/figure7.pdf')
     plt.show()
 
 
@@ -92,7 +92,7 @@ def main():
     summary = pd.read_csv('data/energy_summary.csv')
     sample = pd.read_csv('data/sample.csv')  # List of the 120 randomly selected flights used in the paper
     calculate_coefficients(summary, sample)
-    figure8(summary, sample)
+    figure7(summary, sample)
 
 
 
