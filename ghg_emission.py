@@ -66,9 +66,10 @@ def main():
     coeff = pd.read_csv('data/coefficients.csv', index_col=0)
     vehicles = ['Medium duty diesel truck', 'Small diesel vans', 'Medium duty e-truck',
                 'Small electric van', 'Electric cargo bicycle', 'Quad-copter drone']
-
-    drone_energy_base = energy_distance.energy_two_way(4.0, coeff, payload=500, speed=12, altitude=100, rho=1.2)*0.0036/8.
-    print(drone_energy_base,8.*drone_energy_base/0.0036)
+    base_distance = 2 # km
+    drone_energy_base = energy_distance.energy_two_way(base_distance, coeff, payload=500, speed=12, altitude=100,
+                                                       rho=1.2)*0.0036/(2*base_distance)
+    # print(drone_energy_base,2*base_distance*drone_energy_base/0.0036)
     ghg_electricity = 177  # gCO2e/MJ
     ghg_diesel = 69.35  # gCO2e/MJ
 
